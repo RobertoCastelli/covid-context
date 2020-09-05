@@ -14,7 +14,7 @@ const Charts = () => {
           {
             label: "People",
             backgroundColor: [
-              " rgba(255, 165, 0, 0.5)",
+              "rgba(255, 165, 0, 0.5)",
               "rgba(165, 42, 42, 0.5)",
               "rgba(0, 128, 0, 0.5)",
             ],
