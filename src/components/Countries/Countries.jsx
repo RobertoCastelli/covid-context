@@ -1,24 +1,30 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../context";
 
-const Countries = ({ countryChange }) => {
+const Countries = () => {
   const context = useContext(DataContext);
-  const { countries } = context;
+  const { countries, loading, setSelectedCountry } = context;
 
-  return (
-    <div>
-      <select onChange={(e) => countryChange(e.target.value)}>
-        <option value="global">Global</option>
-        {countries.map((country, id) => {
-          return (
-            <option key={id} value={country}>
-              {country}
-            </option>
-          );
-        })}
-      </select>
-    </div>
-  );
+  //--> Render
+  if (loading) {
+    return <div className="loading"></div>;
+  } else {
+    return (
+      <div>
+        <select onChange={(e) => setSelectedCountry(e.target.value)}>
+          <option>Choose a Country</option>
+          <option value="global">Global</option>
+          {countries.map((country, id) => {
+            return (
+              <option key={id} value={country}>
+                {country}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+    );
+  }
 };
 
 export default Countries;

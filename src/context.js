@@ -9,15 +9,17 @@ const ContextProvider = (props) => {
   const [lastUpdate, setLastUpdate] = useState(null);
   const [loading, setLoading] = useState(false);
   const [countries, setCountries] = useState([]);
-  const [country, setCountry] = useState("Global");
+  const [selectedCountry, setSelectedCountry] = useState("global");
+  const [url, setUrl] = useState("https://covid19.mathdro.id/api");
 
-  // const url;
-  // country === "Global"
-  //   ? (url = "https://covid19.mathdro.id/api")
-  //   : (url = `https://covid19.mathdro.id/api/countries/${country}`);
+  //--> Change URL to fetch data based on selected Country
+  useEffect(() => {
+    selectedCountry === "global"
+      ? setUrl(`https://covid19.mathdro.id/api`)
+      : setUrl(`https://covid19.mathdro.id/api/countries/${selectedCountry}`);
+  }, [selectedCountry]);
 
-  const url = "https://covid19.mathdro.id/api";
-
+  //--> FETCH DATA
   const fetchData = async (url) => {
     setLoading(true);
     try {
@@ -37,6 +39,7 @@ const ContextProvider = (props) => {
     fetchData(url);
   }, [url]);
 
+  //--> FETCH COUNTRIES
   const fetchCountries = async (url) => {
     setLoading(true);
     try {
@@ -51,12 +54,22 @@ const ContextProvider = (props) => {
     }
   };
   useEffect(() => {
-    fetchCountries(`${url}/countries`);
-  }, [url]);
+    fetchCountries("https://covid19.mathdro.id/api/countries");
+  }, []);
 
+  //--> RENDER
   return (
     <DataContext.Provider
-      value={{ confirmed, deaths, recovered, lastUpdate, countries, loading }}
+      value={{
+        confirmed,
+        deaths,
+        recovered,
+        lastUpdate,
+        countries,
+        loading,
+        selectedCountry,
+        setSelectedCountry,
+      }}
     >
       {props.children}
     </DataContext.Provider>

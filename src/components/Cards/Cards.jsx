@@ -21,7 +21,9 @@ const Cards = () => {
               <RiVirusFill size={20} />
             </div>
             <h4>CONFIRMED</h4>
-            <CountUp start={0} end={confirmed} duration={2} separator={","} />
+            {confirmed && (
+              <CountUp start={0} end={confirmed} duration={2} separator={","} />
+            )}
           </li>
 
           <li className="deaths-wrapper">
@@ -29,7 +31,9 @@ const Cards = () => {
               <FaSkullCrossbones size={20} />
             </div>
             <h4>DEATHS</h4>
-            <CountUp start={0} end={deaths} duration={2} separator={","} />
+            {deaths && (
+              <CountUp start={0} end={deaths} duration={2} separator={","} />
+            )}
           </li>
 
           <li className="recovered-wrapper">
@@ -37,7 +41,9 @@ const Cards = () => {
               <RiMentalHealthLine size={20} />
             </div>
             <h4>RECOVERED</h4>
-            <CountUp start={0} end={recovered} duration={2} separator={","} />
+            {recovered && (
+              <CountUp start={0} end={recovered} duration={2} separator={","} />
+            )}
           </li>
         </ul>
       </div>
