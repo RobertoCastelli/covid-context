@@ -18,7 +18,6 @@ const Charts = () => {
               "rgba(165, 42, 42, 0.5)",
               "rgba(0, 128, 0, 0.5)",
             ],
-
             data: [confirmed, deaths, recovered],
           },
         ],

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 export const DataContext = React.createContext();
 
 const ContextProvider = (props) => {
+  //--> STATS
   const [confirmed, setConfirmed] = useState(null);
   const [deaths, setDeaths] = useState(null);
   const [recovered, setRecovered] = useState(null);

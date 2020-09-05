@@ -1,3 +1,4 @@
+/* TAGS */
 body {
   margin: 0;
   padding: 0;
@@ -69,6 +70,7 @@ select:optional {
   font-family: "Ubuntu", sans-serif;
 }
 
+/* MAIN */
 .container {
   display: flex;
   flex-direction: column;
@@ -81,6 +83,7 @@ select:optional {
   flex-grow: 1;
 }
 
+/* HEADER */
 .header-image {
   width: 50%;
 }
@@ -94,6 +97,7 @@ select:optional {
   text-align: center;
 }
 
+/* CARDS */
 .confirmed-wrapper,
 .deaths-wrapper,
 .recovered-wrapper {
@@ -112,6 +116,7 @@ select:optional {
   border-bottom: 0.5rem solid rgba(0, 128, 0, 0.5);
 }
 
+/* LOADING */
 .loading {
   text-align: center;
   font-size: 2rem;

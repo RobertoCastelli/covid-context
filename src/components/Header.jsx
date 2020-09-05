@@ -15,6 +15,7 @@ const Header = () => {
         <p>
           last update:{" "}
           <span className="header-update">
+            {/* FETCH DATE UPDATED */}
             {new Date(lastUpdate).toDateString()}
           </span>
         </p>
