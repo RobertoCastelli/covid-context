@@ -25,7 +25,7 @@ footer {
 ul {
   display: flex;
   list-style: none;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -35,10 +35,6 @@ ul {
     display: grid;
     place-content: center;
   }
-}
-
-li {
-  margin: 1rem;
 }
 
 h4 {
@@ -69,6 +65,9 @@ select:focus {
   outline: none;
   box-shadow: 0 0 1px 1px cadetblue;
 }
+select:optional {
+  font-family: "Ubuntu", sans-serif;
+}
 
 .container {
   display: flex;
@@ -92,28 +91,29 @@ select:focus {
 }
 .header-country {
   text-transform: uppercase;
+  text-align: center;
 }
 
 .confirmed-wrapper,
 .deaths-wrapper,
 .recovered-wrapper {
   width: 150px;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 0.5rem;
 }
 
 .confirmed-wrapper {
-  border-bottom: 0.5rem solid orange;
+  border-bottom: 0.5rem solid rgba(255, 165, 0, 0.5);
 }
 .deaths-wrapper {
-  border-bottom: 0.5rem solid brown;
+  border-bottom: 0.5rem solid rgba(165, 42, 42, 0.5);
 }
 .recovered-wrapper {
-  border-bottom: 0.5rem solid green;
+  border-bottom: 0.5rem solid rgba(0, 128, 0, 0.5);
 }
 
 .loading {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
 }

@@ -4,7 +4,7 @@ import headerImage from "../images/header-image.jpg";
 
 const Header = () => {
   const context = useContext(DataContext);
-  const { lastUpdate, loading, selectedCountry } = context;
+  const { lastUpdate, loading } = context;
 
   if (loading) {
     return <div className="loading"></div>;
@@ -18,7 +18,6 @@ const Header = () => {
             {new Date(lastUpdate).toDateString()}
           </span>
         </p>
-        <h1 className="header-country">{selectedCountry}</h1>
       </header>
     );
   }

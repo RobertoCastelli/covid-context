@@ -7,7 +7,7 @@ import CountUp from "react-countup";
 
 const Cards = () => {
   const context = useContext(DataContext);
-  const { confirmed, deaths, recovered, loading } = context;
+  const { confirmed, deaths, recovered, loading, selectedCountry } = context;
 
   //--> Render
   if (loading) {
@@ -15,7 +15,7 @@ const Cards = () => {
   } else {
     return (
       <div>
-        <ul>
+        <ul className="card-wrapper">
           <li className="confirmed-wrapper">
             <div>
               <RiVirusFill size={20} />
@@ -46,6 +46,7 @@ const Cards = () => {
             )}
           </li>
         </ul>
+        <h1 className="header-country">{selectedCountry}</h1>
       </div>
     );
   }

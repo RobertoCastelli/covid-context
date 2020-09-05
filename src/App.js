@@ -4,6 +4,7 @@ import ContextProvider from "./context";
 import Footer from "./components/Footer";
 import Cards from "./components/Cards/Cards";
 import Countries from "./components/Countries/Countries";
+import Charts from "./components/Charts/Charts";
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       <div className="content">
         <ContextProvider>
           <Header />
-          <Cards />
           <Countries />
+          <Cards />
+          <Charts />
         </ContextProvider>
       </div>
       <Footer />

@@ -13,7 +13,7 @@ const Countries = () => {
       <div>
         <select onChange={(e) => setSelectedCountry(e.target.value)}>
           <option>Choose a Country</option>
-          <option value="global">Global</option>
+          <option value="global data">Global Data</option>
           {countries.map((country, id) => {
             return (
               <option key={id} value={country}>

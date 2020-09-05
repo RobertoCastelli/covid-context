@@ -9,12 +9,12 @@ const ContextProvider = (props) => {
   const [lastUpdate, setLastUpdate] = useState(null);
   const [loading, setLoading] = useState(false);
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("global");
+  const [selectedCountry, setSelectedCountry] = useState("global data");
   const [url, setUrl] = useState("https://covid19.mathdro.id/api");
 
   //--> Change URL to fetch data based on selected Country
   useEffect(() => {
-    selectedCountry === "global"
+    selectedCountry === "global data"
       ? setUrl(`https://covid19.mathdro.id/api`)
       : setUrl(`https://covid19.mathdro.id/api/countries/${selectedCountry}`);
   }, [selectedCountry]);
