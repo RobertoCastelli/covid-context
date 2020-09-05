@@ -7,34 +7,56 @@ const ContextProvider = (props) => {
   const [deaths, setDeaths] = useState(null);
   const [recovered, setRecovered] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(null);
-  const [countries, setCountries] = useState("Global");
+  const [loading, setLoading] = useState(false);
+  const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState("Global");
+
+  // const url;
+  // country === "Global"
+  //   ? (url = "https://covid19.mathdro.id/api")
+  //   : (url = `https://covid19.mathdro.id/api/countries/${country}`);
 
   const url = "https://covid19.mathdro.id/api";
 
   const fetchData = async (url) => {
+    setLoading(true);
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setConfirmed(data.confirmed.value);
       setDeaths(data.deaths.value);
       setRecovered(data.recovered.value);
       setLastUpdate(data.lastUpdate);
-      setCountries(data.countries);
     } catch (error) {
       console.log(`something is wrong: ${error}`);
     } finally {
-      console.log("finally");
+      setLoading(false);
     }
   };
-
   useEffect(() => {
     fetchData(url);
   }, [url]);
 
+  const fetchCountries = async (url) => {
+    setLoading(true);
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const countryList = data.countries.map((country) => country.name);
+      setCountries(countryList);
+    } catch (error) {
+      console.log(`something is wrong: ${error}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchCountries(`${url}/countries`);
+  }, [url]);
+
   return (
     <DataContext.Provider
-      value={{ confirmed, deaths, recovered, lastUpdate, countries }}
+      value={{ confirmed, deaths, recovered, lastUpdate, countries, loading }}
     >
       {props.children}
     </DataContext.Provider>
